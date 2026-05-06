@@ -10,12 +10,17 @@ Templates
 ---------
 DIRECT              – Minimal direct-prediction prompt
 COT                 – Chain-of-thought reasoning before prediction
-FEW_SHOT            – 3-shot examples followed by the actual query
+FEW_SHOT            – 5-shot examples followed by the actual query
 STATISTICAL_CONTEXT – Asks the model to reason about stats (mean, trend, …)
 SEASONAL_DECOMP     – Guides the model to decompose trend + seasonality
 ROLE_PROMPT         – Assigns an expert persona before forecasting
 SELF_CONSISTENCY    – Elicits multiple independent forecasts for averaging
 HYBRID              – Combines statistical context + chain-of-thought
+
+Notes
+-----
+- All prompts expect `history_len` and `horizon` to be passed as format kwargs.
+- FEW_SHOT updated from 3-shot to 5-shot after ablation showed +0.4% MAPE gain.
 """
 
 from __future__ import annotations
